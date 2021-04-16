@@ -1,0 +1,247 @@
+<!DOCTYPE html>
+<html>
+<style>
+    body, html {
+        height: 100%;
+        margin: 0;
+    }
+
+    .middle {
+        position: absolute;
+        top: 50px;
+        left: 50%;
+        transform: translate(-50%);
+        text-align: center;
+        overflow : auto;
+
+    }
+    .styled-table {
+        border-collapse: collapse;
+        margin: 25px 0;
+        font-size: 0.9em;
+        font-family: sans-serif;
+        min-width: 400px;
+        box-shadow: 0 0 20px rgba(0, 0, 0, 0.15);
+    }
+    .styled-table thead tr {
+        background-color: #009879;
+        color: #ffffff;
+        text-align: left;
+    }
+    .styled-table th,
+    .styled-table td {
+        padding: 12px 15px;
+        border:thin solid #000000;
+    }
+    .styled-table tbody tr {
+        border-bottom: 1px solid #dddddd;
+    }
+
+    .styled-table tbody tr:nth-of-type(even) {
+        background-color: #f3f3f3;
+    }
+
+    .styled-table tbody tr:last-of-type {
+        border-bottom: 2px solid #009879;
+    }
+</style>
+
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+<script>
+    function bouton_go() {
+        var xhttp = new XMLHttpRequest();
+        var value = document.getElementById("nbr_ligne_a_afficher").value;
+        xhttp.onreadystatechange = function() {
+            if (this.readyState == 4 && this.status == 200) {
+                document.getElementById("demo").innerHTML =
+                    this.responseText;
+            }
+        };
+        xhttp.open("GET", "http://localhost:3000/load?number="+value, true);
+        xhttp.send();
+    }
+    function query_categorie2(value) {
+        var xhttp = new XMLHttpRequest();
+        var params = JSON.stringify({value:value});
+        xhttp.onreadystatechange = function() {
+            if (this.readyState == 4 && this.status == 200) {
+                document.getElementById("demo").innerHTML =
+                    this.responseText;
+            }
+        };
+        xhttp.open("GET", "http://localhost:3000/load_categorie?keyword="+value, true);
+        xhttp.send(params);
+    }
+
+    function query_sexe(value) {
+        var xhttp = new XMLHttpRequest();
+        var params = JSON.stringify({value:value});
+        xhttp.onreadystatechange = function() {
+            if (this.readyState == 4 && this.status == 200) {
+                document.getElementById("demo").innerHTML =
+                    this.responseText;
+            }
+        };
+        xhttp.open("GET", "http://localhost:3000/load_sexe?keyword="+value, true);
+        xhttp.send(params);
+    }
+
+    function sort_heure() {
+        var xhttp = new XMLHttpRequest();
+        xhttp.onreadystatechange = function() {
+            if (this.readyState == 4 && this.status == 200) {
+                document.getElementById("demo").innerHTML =
+                    this.responseText;
+            }
+        };
+        xhttp.open("GET", "http://localhost:3000/load_sort_heure", true);
+        xhttp.send();
+    }
+
+    function sort_coeff() {
+        var xhttp = new XMLHttpRequest();
+        xhttp.onreadystatechange = function() {
+            if (this.readyState == 4 && this.status == 200) {
+                document.getElementById("demo").innerHTML =
+                    this.responseText;
+            }
+        };
+        xhttp.open("GET", "http://localhost:3000/load_sort_coeff", true);
+        xhttp.send();
+    }
+
+    function duree_cours() {
+        var xhttp = new XMLHttpRequest();
+        xhttp.onreadystatechange = function() {
+            if (this.readyState == 4 && this.status == 200) {
+                document.getElementById("demo").innerHTML =
+                    this.responseText;
+            }
+        };
+        xhttp.open("GET", "http://localhost:3000/load_duree_cours", true);
+        xhttp.send();
+    }
+
+    function aggs_nb_heure() {
+        var xhttp = new XMLHttpRequest();
+        xhttp.onreadystatechange = function() {
+            if (this.readyState == 4 && this.status == 200) {
+                document.getElementById("demo").innerHTML =
+                    this.responseText;
+            }
+        };
+        xhttp.open("GET", "http://localhost:3000/load_aggs_nb_heure", true);
+        xhttp.send();
+    }
+
+    function sort_matiere() {
+        var xhttp = new XMLHttpRequest();
+        xhttp.onreadystatechange = function() {
+            if (this.readyState == 4 && this.status == 200) {
+                document.getElementById("demo").innerHTML =
+                    this.responseText;
+            }
+        };
+        xhttp.open("GET", "http://localhost:3000/load_sort_matiere", true);
+        xhttp.send();
+    }
+
+    function recherche() {
+        var xhttp = new XMLHttpRequest();
+        var value = document.getElementById("mot_a_afficher").value;
+        xhttp.onreadystatechange = function() {
+            if (this.readyState == 4 && this.status == 200) {
+                document.getElementById("demo").innerHTML =
+                    this.responseText;
+            }
+        };
+        xhttp.open("GET", "http://localhost:3000/recherche?mot="+value, true);
+        xhttp.send();
+    }
+
+
+    function postForm() {
+        var xhttp = new XMLHttpRequest();
+        var value = document.getElementById("form").value;
+        console.log("printfff");
+        xhttp.open("GET", "http://localhost:3000/postForm?form=" + value, true);
+        xhttp.send(value);
+    }
+
+    function goToForm() {
+        var xhttp = new XMLHttpRequest();
+        xhttp.onreadystatechange = function() {
+            if (this.readyState == 4 && this.status == 200) {
+                document.getElementById("demo").innerHTML =
+                    this.responseText;
+            }
+        };
+        xhttp.open("GET", "http://localhost:3000/goToForm", true);
+        xhttp.send();
+    }
+
+</script>
+
+<body>
+<link rel="icon" href="data:;base64,iVBORw0KGgo=">
+<div>
+    <div class="btn-toolbar">
+        <div class="btn-group id_dropdown" role="group" >
+            <input type="number" id="nbr_ligne_a_afficher" min="0" max="100" class="text-center" value="5">
+            <button class="btn-secondary rounded-pill" type="button" onclick="bouton_go()">Go</button>
+            <div class="btn-group dropdown" role="group">
+                <button id="button_categorie" type="button" class="btn-secondary rounded-pill  dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Choisir une categorie
+                    <span class="caret"></span></button>
+
+                <div class="dropdown-menu" aria-labelledby="drop">
+                    <a class="dropdown-item" onclick="query_categorie2('IA')">IA</a>
+                    <a class="dropdown-item" onclick="query_categorie2('Maths')">Maths</a>
+                    <a class="dropdown-item" onclick="query_categorie2('Developpement')">Développement</a>
+
+                </div>
+
+
+            </div>
+            <div class="btn-group dropdown" role="group">
+                <button id="button_sexe" type="button" class="btn-secondary rounded-pill  dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Sexe
+                    <span class="caret"></span></button>
+
+                <div class="dropdown-menu" aria-labelledby="drop">
+                    <a class="dropdown-item" onclick="query_sexe('M')">M</a>
+                    <a class="dropdown-item" onclick="query_sexe('F')">F</a>
+
+                </div>
+
+
+            </div>
+
+            <button class="btn-secondary rounded-pill" type="button" onclick="sort_heure()">Trier par heure</button>
+            <button class="btn-secondary rounded-pill" type="button" onclick="sort_coeff()">Trier par coefficient</button>
+            <button class="btn-secondary rounded-pill" type="button" onclick="sort_matiere()">Trier par ordre alphabétique</button>
+
+
+            <input type="text" id="mot_a_afficher" class="text-center" placeholder="IA">
+            <button class="btn-secondary rounded-pill" type="button" onclick="recherche()">Recherche</button>
+            <button class="btn-secondary rounded-pill" type="button" onclick="duree_cours()">Durée du cours</button>
+            <button class="btn-secondary rounded-pill" type="button" onclick="aggs_nb_heure()">Nombre heures par catégorie</button>
+
+            <button class="btn-secondary rounded-pill" type="button" onclick="goToForm()">Create form</button>
+        </div>
+    </div>
+    <div class="bgimg">
+        <div class="middle">
+            <h2 id="Resultat_titre">Résultats de la requête</h2>
+            <div id = "resultForm" >
+                {{formReponse}}
+
+            </div>
+            <div id="demo"/>
+        </div>
+
+    </div>
+</div>
+<script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
+</body>
+</html>

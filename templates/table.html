@@ -1,0 +1,30 @@
+<div>
+
+    <table class="styled-table">
+        <tr>
+            <th>Matiere</th>
+            <th>Coef</th>
+            <th>Intervenant</th>
+            <th>Sexe</th>
+            <th>Categorie</th>
+            <th>Nb heure</th>
+            <th>Date debut</th>
+            <th>date fin</th>
+            <th>Description</th>
+        </tr>
+        {% for line in data %}
+            <tr>
+                {% for item in line %}
+                    {% if item[0] == '_source' %}
+                        {% for key, value in item[1].items() %}
+                            <td>
+                                {{ value }}
+                            </td>
+                        {% endfor %}
+                    {% endif %}
+                {% endfor %}
+            </tr>
+        {% endfor %}
+
+    </table>
+</div>

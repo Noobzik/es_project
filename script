@@ -1,0 +1,212 @@
+DELETE esgi
+
+PUT esgi
+{
+  "mappings": {
+    "properties": {
+      "matiere":{
+        "type": "text",
+        "analyzer": "french",
+        "fields": {
+          "raw" :{
+            "type" : "keyword"
+          }
+        }
+      },
+      "coefficient":{
+        "type": "integer"
+      },
+      "intervenant":{
+        "type": "text",
+        "analyzer": "standard",
+        "fields": {
+          "raw" :{
+            "type" : "keyword"
+          }
+        }
+      },
+      "sexe":{
+        "type": "keyword"
+      },
+      "categorie":{
+        "type": "keyword"
+      },
+      "nbr_heures":{
+        "type": "integer"
+      },
+      "date_debut":{
+        "type": "date",
+        "format": "yyyy-MM-dd"
+      },
+      "date_fin":{
+        "type": "date",
+        "format": "yyyy-MM-dd"
+      },
+      "description":{
+        "type": "text",
+        "analyzer": "french",
+        "fields": {
+          "raw" :{
+            "type" : "keyword"
+          }
+        }
+      }
+    }
+  }
+}
+
+POST esgi/_doc/
+{
+  "matiere": "ElasticSearch et SageMaker",
+  "coefficient": "2",
+  "intervenant": "AROUS",
+  "sexe": "M",
+  "categorie": "Developpement",
+  "nbr_heures": "40",
+  "date_debut": "2021-02-01",
+  "date_fin": "2021-06-24",
+  "description": "La meilleure matière de l'ESGI"
+}
+
+POST esgi/_doc/
+{
+  "matiere": "Spark streaming",
+  "coefficient": "4",
+  "intervenant": "BROUSSOLLE",
+  "sexe": "M",
+  "categorie": "IA",
+  "nbr_heures": "20",
+  "date_debut": "2021-05-07",
+  "date_fin": "2021-07-30",
+  "description": "Suite de Spark Core vu au S1"
+}
+
+POST esgi/_doc/
+{
+  "matiere": "Méthodologie agile : scrum",
+  "coefficient": "2",
+  "intervenant": "SOUPHRON",
+  "sexe": "M",
+  "categorie": "Developpement",
+  "nbr_heures": "15",
+  "date_debut": "2021-03-15",
+  "date_fin": "2021-04-12",
+  "description": "Decouverte et apprentisage de la methode de gestion la plus utilise en entreprise"
+}
+
+POST esgi/_doc/
+{
+  "matiere": "Deep Reinforcement Learning",
+  "coefficient": "3",
+  "intervenant": "VIDAL",
+  "sexe": "M",
+  "categorie": "IA",
+  "nbr_heures": "30",
+  "date_debut": "2021-04-12",
+  "date_fin": "2021-07-30",
+  "description": "Suite de Deep Learning vu au S1"
+}
+
+POST esgi/_doc/
+{
+  "matiere": "Data Marketing",
+  "coefficient": "2",
+  "intervenant": "LEVY",
+  "sexe": "M",
+  "categorie": "Developpement",
+  "nbr_heures": "18",
+  "date_debut": "2021-03-17",
+  "date_fin": "2021-05-15",
+  "description": "Comprendre comment vendre un produit Big Data a des clients"
+}
+
+POST esgi/_doc/
+{
+  "matiere": "Cloud et Big Data",
+  "coefficient": "3",
+  "intervenant": "KIFFER",
+  "sexe": "M",
+  "categorie": "IA",
+  "nbr_heures": "18",
+  "date_debut": "2021-04-12",
+  "date_fin": "2021-06-25",
+  "description": "Tout savoir sur ce qu'est le cloud et le Big Data"
+}
+
+POST esgi/_doc/
+{
+  "matiere": "Projet annuel",
+  "coefficient": "3",
+  "intervenant": "WAJNBERG",
+  "sexe": "M",
+  "categorie": "Maths",
+  "nbr_heures": "36",
+  "date_debut": "2021-04-16",
+  "date_fin": "2021-07-30",
+  "description": "Grand projet annuel ou se joue une grande partie de notre annee"
+}
+
+POST esgi/_doc/
+{
+  "matiere": "Programmation fonctionnelle en Scala",
+  "coefficient": "2",
+  "intervenant": "THORNARY",
+  "sexe": "F",
+  "categorie": "Developpement",
+  "nbr_heures": "18",
+  "date_debut": "2021-03-15",
+  "date_fin": "2021-05-13",
+  "description": "Apprentisage du langage scala a travers le produit IntelliJ"
+}
+
+POST esgi/_doc/
+{
+  "matiere": "Restitution et Reporting",
+  "coefficient": "3",
+  "intervenant": "WAJNBERG",
+  "sexe": "M",
+  "categorie": "Developpement",
+  "nbr_heures": "21",
+  "date_debut": "2021-03-17",
+  "date_fin": "2021-06-24",
+  "description": "Methodologie de gestion de projet en entreprise"
+}
+
+POST esgi/_doc/
+{
+  "matiere": "Securite du Big Data",
+  "coefficient": "2",
+  "intervenant": "CHARBONNEL",
+  "sexe": "M",
+  "categorie": "IA",
+  "nbr_heures": "15",
+  "date_debut": "2021-05-11",
+  "date_fin": "2021-07-30",
+  "description": "Vision de comment assurer la protection des donnees dans le cadre du Big Data"
+}
+
+POST esgi/_doc/
+{
+  "matiere": "Mathématiques avancées pour Big Data avec R",
+  "coefficient": "3",
+  "intervenant": "BIANCHINI",
+  "sexe": "M",
+  "categorie": "Maths",
+  "nbr_heures": "30",
+  "date_debut": "2021-05-09",
+  "date_fin": "2021-07-28",
+  "description": "Utlisation des maths dans le cadre du Big Data avec le produit RStudio"
+}
+
+POST esgi/_doc/
+{
+  "matiere": "R appliqué à l'IA",
+  "coefficient": "2",
+  "intervenant": "DEBROUSELLE",
+  "sexe": "M",
+  "categorie": "Maths",
+  "nbr_heures": "15",
+  "date_debut": "2021-03-17",
+  "date_fin": "2021-07-30",
+  "description": "Aprentissage du langage R et du produit RStudio "
+}

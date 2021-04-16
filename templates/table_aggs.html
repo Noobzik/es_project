@@ -1,0 +1,27 @@
+<div>
+    <table class="styled-table">
+        <tr>
+            <th>Categorie</th>
+            <th>Nombre de matieres</th>
+            <th>Nombre d'heures totales</th>
+        </tr>
+        {% for item in data %}
+            <tr>
+            {% for key, value in item %}
+                {% if key == 'sum_per_categorie' %}
+                    {% for val in value.values() %}
+                        <td>
+                            {{ val }}
+                        </td>
+                    {% endfor %}
+                {% endif %}
+                {% if key != 'sum_per_categorie' %}
+                <td>
+                    {{ value }}
+                </td>
+                {% endif %}
+            {% endfor %}
+            </tr>
+        {% endfor %}
+    </table>
+</div>

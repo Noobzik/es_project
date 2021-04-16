@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html>
+<style>
+    body, html {
+        height: 100%;
+        margin: 0;
+    }
+
+
+    .middle {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        text-align: center;
+    }
+
+</style>
+<script>
+    function postForm() {
+        var xhttp = new XMLHttpRequest();
+        var value = document.getElementById("form").value;
+        var params = JSON.stringify({value:value});
+
+        xhttp.open("POST", "http://localhost:3000/postForm", true);
+        xhttp.send();
+    }
+</script>
+<body>
+<form id="form" action="postForm">
+    <div class="form-group">
+        <label for="matiere" >Matiere</label><br>
+        <input type="text" id="matiere" name="matiere" class="form-control text-center" value="SageMaker">
+    </div>
+    <div class="form-group">
+        <label for="coef">Coef</label><br>
+        <input type="number" id="coef" name="coef" min="0" class="form-control text-center" value="2"/>
+    </div>
+    <div class="form-group">
+        <label for="intervenant">Intervenant</label><br>
+        <input type="text" id="intervenant" name="intervenant" class="form-control text-center" value="AROUS">
+    </div>
+    <div class="form-group">
+        <label for="sexe">Sexe</label><br>
+        <input type="text" id="sexe" name="sexe" class="form-control text-center" value="M">
+    </div>
+    <div class="form-group">
+        <label for="categorie">Categorie</label><br>
+        <input type="text" id="categorie" name="categorie" class="form-control text-center" value="IA">
+    </div>
+    <div class="form-group">
+        <label for="nbheure">Nb heure</label><br>
+        <input type="number" id="nbheure" name="nbheure" class="form-control text-center" value="20">
+    </div>
+    <div class="form-group">
+        <label for="dateDebut">Date début</label><br>
+        <input type="date" id="dateDebut" name="dateDebut" class="form-control text-center" value="01/01/2020">
+    </div>
+    <div class="form-group">
+        <label for="dateFin">Date fin</label><br>
+        <input type="date" id="dateFin" name="dateFin" class="form-control text-center" value="30/06/2021">
+    </div>
+    <div class="form-group">
+        <label for="description">Description</label><br>
+        <input type="text" id="description" name="description" class="form-control text-center" value="Un cours dispense a l'ESGI">
+    </div>
+    <input type="submit" class="button-primary" value="Submit" onClick="postForm()">
+</form>
+
+</body>
